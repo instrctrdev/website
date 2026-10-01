@@ -59,7 +59,7 @@ export default function DrivingJourney() {
           <path className="road-centerline" d="M500 30 C500 150 790 125 790 275 C790 430 210 400 210 565 C210 730 790 690 790 855 C790 1020 290 990 290 1160 C290 1220 430 1250 500 1280" />
           <g className="road-car-marker" ref={carRef} transform="translate(500 30)">
             <ellipse cx="0" cy="3" rx="40" ry="24" fill="#07142f" opacity=".24" />
-            <rect x="-38" y="-22" width="76" height="44" rx="17" fill="#baf06a" stroke="#07142f" strokeWidth="5" />
+            <rect x="-38" y="-22" width="76" height="44" rx="17" fill="#0b7b80" stroke="#06102b" strokeWidth="5" />
             <path d="M-19-16 Q-14-27 0-27 Q14-27 19-16 L16 13 Q0 21-16 13Z" fill="#fff8dc" stroke="#07142f" strokeWidth="3" />
             <path d="M-14-13H14L11-4H-11Z M-12 4H12L14 12Q0 17-14 12Z" fill="#18243a" />
             <rect x="-43" y="-15" width="8" height="13" rx="3" fill="#07142f" /><rect x="35" y="-15" width="8" height="13" rx="3" fill="#07142f" />
