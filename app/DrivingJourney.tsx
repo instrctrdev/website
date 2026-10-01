@@ -47,11 +47,10 @@ export default function DrivingJourney() {
             <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="m6 17 4-7h4l4 7M10 10 8 7H5M13 10l2-3h3"/></svg> Two-wheeler
           </button>
         </div>
-        <div className="lesson-vehicle-art" aria-hidden="true">
+        <div className="lesson-vehicle-art">
           <span className="vehicle-index">01</span>
-          {mode === 'car' ? <svg className="vehicle-illustration car-illustration" viewBox="0 0 320 170"><path d="M48 111h222l-13-40a25 25 0 0 0-24-17H97a24 24 0 0 0-22 15z"/><path d="m88 58 17-34h93l30 34"/><path d="m116 32-12 26m66-26 13 26"/><circle cx="94" cy="116" r="22"/><circle cx="224" cy="116" r="22"/><path d="M37 91h21m204 0h21"/></svg> : <svg className="vehicle-illustration scooter-illustration" viewBox="0 0 320 170"><circle cx="80" cy="124" r="25"/><circle cx="238" cy="124" r="25"/><path d="M80 124h70l34-54h30l24 54h-71l-29-48h-29"/><path d="m184 70 7-31h31m-64 31 24-17m-50 17h-21"/><path d="M149 124v-25m27-2-18-27"/><circle cx="184" cy="39" r="8"/></svg>}
+          <img key={mode} className="lesson-photo" src={mode === 'car' ? '/images/car-lesson.png' : '/images/scooter-lesson.png'} alt={mode === 'car' ? 'A learner practicing in a car with an instructor' : 'A learner practicing on a scooter with an instructor'} />
           <span className="vehicle-caption">{plan.label}<b>Made for your pace <i>↗</i></b></span>
-          <span className="art-orbit orbit-one"/><span className="art-orbit orbit-two"/>
         </div>
         <span className="lesson-note"><b>✳</b> Your first class is free</span>
       </div>
