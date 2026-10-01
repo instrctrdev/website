@@ -12,6 +12,18 @@ export async function GET(req: NextRequest) {
   try {
     const applications = await prisma.application.findMany({
       orderBy: { createdAt: 'desc' },
+      select: {
+        id: true,
+        name: true,
+        phone: true,
+        email: true,
+        city: true,
+        area: true,
+        notes: true,
+        status: true,
+        createdAt: true,
+        updatedAt: true,
+      },
     });
     return NextResponse.json({ success: true, count: applications.length, applications });
   } catch (error) {
@@ -41,6 +53,18 @@ export async function PATCH(req: NextRequest) {
       data: {
         ...(status ? { status } : {}),
         ...(notes !== undefined ? { notes } : {}),
+      },
+      select: {
+        id: true,
+        name: true,
+        phone: true,
+        email: true,
+        city: true,
+        area: true,
+        notes: true,
+        status: true,
+        createdAt: true,
+        updatedAt: true,
       },
     });
 

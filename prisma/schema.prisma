@@ -15,8 +15,8 @@ model Application {
   email                String
   city                 String
   area                 String
-  vehicles             String
-  licenceNumber        String
+  vehicles             String?
+  licenceNumber        String?
   documentPath         String?
   documentOriginalName String?
   notes                String?

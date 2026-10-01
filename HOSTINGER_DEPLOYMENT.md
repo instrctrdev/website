@@ -1,20 +1,20 @@
 # Hostinger Deployment & Database Guide for Instrctr
 
-This guide walks you through deploying your **Instrctr** Next.js application live on **Hostinger** with Hostinger MySQL for registrations and Hostinger storage for driving licence uploads.
+This guide walks you through deploying your **Instrctr** Next.js application live on **Hostinger** with Hostinger MySQL for instructor applications.
 
 ---
 
 ## 🏗️ What We Have Built
 
 1. **Backend Registration API** ([`app/api/apply/route.ts`](file:///Users/vakdamanikanta/Mani%20Projects/Instrctr/app/api/apply/route.ts)):
-   - Receives form data (`name`, `phone`, `email`, `city`, `area`, `vehicle`, `licence`).
-   - Automatically saves uploaded driving licence files to `public/uploads/`.
+   - Receives form data (`name`, `phone`, `email`, `city`, `area`).
+   - Does not collect vehicle preferences or driving licence details/documents.
    - Stores applicant records in the Hostinger MySQL database.
 
 2. **Secure Admin Dashboard** ([`app/admin/page.tsx`](file:///Users/vakdamanikanta/Mani%20Projects/Instrctr/app/admin/page.tsx)):
    - Access at `https://your-domain.com/admin` using your secret password.
    - Filter, search, and update applicant statuses (*Pending*, *Contacted*, *Approved*, *Rejected*).
-   - View / download uploaded driving licence files with one click.
+   - Manage applicant status and export contact/location details to CSV.
    - **Export all applicant data to CSV** directly from your browser.
 
 3. **Production Standalone Build & Scripts**:
@@ -128,7 +128,7 @@ pm2 save
 
 1. Visit `https://your-domain.com` in your browser.
 2. Scroll to the **Join as Instructor** section.
-3. Submit a test application with name, phone, licence number, and upload a test document.
+3. Submit a test application with name, phone, email, city, and area.
 4. Go to `https://your-domain.com/admin`.
 5. Enter your `ADMIN_SECRET` password to log in.
 6. Verify the application appears, click **View Licence Document**, and click **Export to CSV**.

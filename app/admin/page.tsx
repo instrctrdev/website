@@ -9,10 +9,6 @@ interface Application {
   email: string;
   city: string;
   area: string;
-  vehicles: string;
-  licenceNumber: string;
-  documentPath: string | null;
-  documentOriginalName: string | null;
   notes: string | null;
   status: string;
   createdAt: string;
@@ -92,7 +88,7 @@ export default function AdminPage() {
 
   function exportCSV() {
     if (applications.length === 0) return;
-    const headers = ['ID', 'Name', 'Phone', 'Email', 'City', 'Area', 'Vehicles', 'Licence', 'Status', 'Date', 'Document URL'];
+    const headers = ['ID', 'Name', 'Phone', 'Email', 'City', 'Area', 'Status', 'Date'];
     const rows = applications.map(a => [
       a.id,
       `"${a.name.replace(/"/g, '""')}"`,
@@ -100,11 +96,8 @@ export default function AdminPage() {
       `"${a.email}"`,
       `"${a.city}"`,
       `"${a.area}"`,
-      `"${a.vehicles}"`,
-      `"${a.licenceNumber}"`,
       `"${a.status}"`,
       `"${new Date(a.createdAt).toLocaleString()}"`,
-      `"${a.documentPath ? window.location.origin + a.documentPath : 'None'}"`,
     ]);
 
     const csvContent = 'data:text/csv;charset=utf-8,' + [headers.join(','), ...rows.map(e => e.join(','))].join('\n');
@@ -121,8 +114,7 @@ export default function AdminPage() {
     const matchesSearch =
       app.name.toLowerCase().includes(search.toLowerCase()) ||
       app.phone.includes(search) ||
-      app.email.toLowerCase().includes(search.toLowerCase()) ||
-      app.licenceNumber.toLowerCase().includes(search.toLowerCase());
+      app.email.toLowerCase().includes(search.toLowerCase());
     const matchesCity = filterCity ? app.city === filterCity : true;
     const matchesStatus = filterStatus ? app.status === filterStatus : true;
     return matchesSearch && matchesCity && matchesStatus;
@@ -207,7 +199,7 @@ export default function AdminPage() {
         <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginBottom: '20px', background: '#131823', padding: '16px', borderRadius: '12px', border: '1px solid #1e293b' }}>
           <input
             type="text"
-            placeholder="🔍 Search by name, phone, email, licence..."
+            placeholder="🔍 Search by name, phone, or email..."
             value={search}
             onChange={e => setSearch(e.target.value)}
             style={{ flex: '1 1 240px', padding: '10px 14px', background: '#0b0f17', border: '1px solid #2d3748', borderRadius: '8px', color: '#fff', fontSize: '14px' }}
@@ -246,8 +238,6 @@ export default function AdminPage() {
                   <th style={{ padding: '14px 18px' }}>Applicant</th>
                   <th style={{ padding: '14px 18px' }}>Contact</th>
                   <th style={{ padding: '14px 18px' }}>Location</th>
-                  <th style={{ padding: '14px 18px' }}>Vehicles</th>
-                  <th style={{ padding: '14px 18px' }}>Licence & Document</th>
                   <th style={{ padding: '14px 18px' }}>Status</th>
                   <th style={{ padding: '14px 18px' }}>Applied Date</th>
                 </tr>
@@ -270,26 +260,6 @@ export default function AdminPage() {
                     <td style={{ padding: '16px 18px', verticalAlign: 'top' }}>
                       <div style={{ fontWeight: 500, color: '#f8fafc' }}>{app.city}</div>
                       <div style={{ color: '#94a3b8', fontSize: '13px' }}>{app.area}</div>
-                    </td>
-                    <td style={{ padding: '16px 18px', verticalAlign: 'top' }}>
-                      <span style={{ background: '#1e293b', color: '#cbd5e1', padding: '4px 8px', borderRadius: '6px', fontSize: '12px' }}>
-                        {app.vehicles}
-                      </span>
-                    </td>
-                    <td style={{ padding: '16px 18px', verticalAlign: 'top' }}>
-                      <div style={{ fontFamily: 'monospace', color: '#cbd5e1', marginBottom: '6px' }}>{app.licenceNumber}</div>
-                      {app.documentPath ? (
-                        <a
-                          href={app.documentPath}
-                          target="_blank"
-                          rel="noreferrer"
-                          style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', background: '#2563eb22', color: '#60a5fa', border: '1px solid #2563eb55', padding: '4px 10px', borderRadius: '6px', fontSize: '12px', textDecoration: 'none' }}
-                        >
-                          📄 View Licence Document ↗
-                        </a>
-                      ) : (
-                        <span style={{ color: '#64748b', fontSize: '12px' }}>No file uploaded</span>
-                      )}
                     </td>
                     <td style={{ padding: '16px 18px', verticalAlign: 'top' }}>
                       <select
