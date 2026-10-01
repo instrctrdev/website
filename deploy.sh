@@ -17,8 +17,8 @@ mkdir -p data public/uploads
 echo "📦 Installing dependencies..."
 npm install
 
-# 4. Generate Prisma & sync SQLite database schema
-echo "🗄️ Setting up SQLite database..."
+# 4. Generate Prisma & sync MySQL database schema
+echo "🗄️ Setting up MySQL database..."
 npx prisma generate
 npx prisma db push
 

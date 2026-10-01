@@ -1,6 +1,6 @@
 # Hostinger Deployment & Database Guide for Instrctr
 
-This guide walks you through deploying your **Instrctr** Next.js application live on **Hostinger** via SSH terminal with an integrated **SQLite database** to store registrations and driving licence uploads.
+This guide walks you through deploying your **Instrctr** Next.js application live on **Hostinger** with Hostinger MySQL for registrations and Hostinger storage for driving licence uploads.
 
 ---
 
@@ -9,7 +9,7 @@ This guide walks you through deploying your **Instrctr** Next.js application liv
 1. **Backend Registration API** ([`app/api/apply/route.ts`](file:///Users/vakdamanikanta/Mani%20Projects/Instrctr/app/api/apply/route.ts)):
    - Receives form data (`name`, `phone`, `email`, `city`, `area`, `vehicle`, `licence`).
    - Automatically saves uploaded driving licence files to `public/uploads/`.
-   - Stores applicant records safely in SQLite (`data/instrctr.db`).
+   - Stores applicant records in the Hostinger MySQL database.
 
 2. **Secure Admin Dashboard** ([`app/admin/page.tsx`](file:///Users/vakdamanikanta/Mani%20Projects/Instrctr/app/admin/page.tsx)):
    - Access at `https://your-domain.com/admin` using your secret password.
@@ -30,7 +30,7 @@ This guide walks you through deploying your **Instrctr** Next.js application liv
 From your local machine terminal:
 ```bash
 git add .
-git commit -m "Add SQLite database, registration API, admin dashboard, and deployment scripts"
+git commit -m "Add MySQL database, registration API, admin dashboard, and deployment scripts"
 git push origin main
 ```
 
@@ -77,8 +77,9 @@ nano .env
 ```
 Paste your production settings:
 ```env
-# SQLite Database file location
-DATABASE_URL="file:./data/instrctr.db"
+# Use the database name, username, and password shown in hPanel.
+# For a Node.js app on Hostinger, connect to 127.0.0.1:3306.
+DATABASE_URL="mysql://DB_USER:DB_PASSWORD@127.0.0.1:3306/DB_NAME"
 
 # Change this to a secure secret key for your /admin portal
 ADMIN_SECRET="your_custom_secure_admin_password_2026"
@@ -100,7 +101,7 @@ chmod +x deploy.sh
 
 This script will automatically:
 1. Install Node.js dependencies (`npm install`).
-2. Initialize and sync the SQLite database (`prisma db push`).
+2. Initialize and sync the MySQL database (`prisma db push`).
 3. Build the Next.js production bundle (`npm run build`).
 4. Start/reload the application via PM2 or Node.js.
 

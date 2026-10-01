@@ -136,7 +136,7 @@ export default function AdminPage() {
         <div style={{ maxWidth: '420px', width: '100%', background: '#131823', padding: '36px', borderRadius: '16px', border: '1px solid #232b3e', boxShadow: '0 20px 40px rgba(0,0,0,0.5)' }}>
           <div style={{ textAlign: 'center', marginBottom: '24px' }}>
             <h1 style={{ fontSize: '24px', fontWeight: 'bold', margin: '0 0 8px 0', color: '#60a5fa' }}>Instrctr Portal</h1>
-            <p style={{ color: '#94a3b8', fontSize: '14px', margin: 0 }}>Enter your Admin Password to access applications stored in SQLite</p>
+            <p style={{ color: '#94a3b8', fontSize: '14px', margin: 0 }}>Enter your Admin Password to access saved applications</p>
           </div>
           {error && <div style={{ background: '#ef444422', border: '1px solid #ef4444', color: '#f87171', padding: '10px 14px', borderRadius: '8px', fontSize: '13px', marginBottom: '16px' }}>{error}</div>}
           <form onSubmit={handleLogin}>
@@ -175,7 +175,7 @@ export default function AdminPage() {
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <span style={{ fontSize: '24px', fontWeight: 'bold', color: '#38bdf8' }}>Instrctr</span>
-              <span style={{ background: '#1e293b', color: '#38bdf8', padding: '3px 10px', borderRadius: '20px', fontSize: '12px', fontWeight: 600 }}>SQLite Storage</span>
+              <span style={{ background: '#1e293b', color: '#38bdf8', padding: '3px 10px', borderRadius: '20px', fontSize: '12px', fontWeight: 600 }}>MySQL Storage</span>
             </div>
             <p style={{ margin: '4px 0 0', color: '#94a3b8', fontSize: '14px' }}>
               Showing {filtered.length} of {applications.length} instructor applications
