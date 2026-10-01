@@ -68,7 +68,7 @@ export default function Home() {
   return <>
     <header className="topbar"><a className="brand" href="#home" aria-label="Instrctr home"><span><span className="brand-i">i</span>nstrctr<span className="brand-dot">.</span></span></a>
       <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle navigation">☰</button>
-      <nav className={menuOpen ? 'nav open' : 'nav'}><a href="#services" onClick={() => setMenuOpen(false)}>Our services</a><a href="#journey" onClick={() => setMenuOpen(false)}>Learning path</a><a href="#impact" onClick={() => setMenuOpen(false)}>Our impact</a><a href="#cities" onClick={() => setMenuOpen(false)}>Where we are</a><a className="nav-cta" href="#join" onClick={() => setMenuOpen(false)}>Teach with us <span>↗</span></a></nav>
+      <nav className={menuOpen ? 'nav open' : 'nav'}><a href="#services" onClick={() => setMenuOpen(false)}>Classes</a><a href="#journey" onClick={() => setMenuOpen(false)}>How it works</a><a href="#impact" onClick={() => setMenuOpen(false)}>Reviews</a><a href="#cities" onClick={() => setMenuOpen(false)}>Areas we cover</a><a className="nav-cta" href="#join" onClick={() => setMenuOpen(false)}>Become a trainer <span>↗</span></a></nav>
     </header>
     <main id="home">
       <div className="road-backdrop" aria-hidden="true">
@@ -76,14 +76,14 @@ export default function Home() {
         <img className="road-vehicle road-bike" src="/images/road-bike.png" alt="" />
       </div>
       <section className="hero">
-        <div className="hero-copy"><div className="eyebrow"><span className="pulse"/> DRIVING CLASSES, MADE HUMAN</div>
-          <h1>Your road.<br/><span>Your rules.</span></h1>
-          <p className="hero-text">Learn to drive with patient, trusted instructors who meet you where you are. A calmer way to get behind the wheel is on its way.</p>
-          <div className="hero-actions"><a className="button primary" href="#services">Explore our services <span>↗</span></a><a className="text-link" href="#join">Are you a trainer? <span>→</span></a></div>
+        <div className="hero-copy"><div className="eyebrow"><span className="pulse"/> DRIVING CLASSES, MADE EASY</div>
+          <h1>Scared of the steering?<br/><span>Not for long.</span></h1>
+          <p className="hero-text">Patient, verified trainers come to you, teach you step by step, and stay with you until you're ready for the road. Your first class is free.</p>
+          <div className="hero-actions"><a className="button primary" href="#join">Book my free first class <span>↗</span></a><a className="text-link" href="#join">Take a free LLR practice test →</a></div>
           <div className="proof"><span className="avatars"><i>✦</i><i>✦</i><i>✦</i></span><span>Building confident drivers, one lesson at a time</span></div>
         </div>
-        <div className="hero-photo"><img src="/images/hero-driving-lesson.png" alt="A learner driver practicing with a supportive instructor"/><div className="hero-photo-shade"/><div className="hero-quote"><span className="quote-mark">“</span><div><b>Confidence grows one calm lesson at a time.</b><small>OUR PROMISE AT INSTRCTR</small></div></div><span className="hero-photo-kicker">LEARN AT YOUR PACE <i>✳</i></span></div>
-        <div className="hero-bottom"><span>01 / 04</span><div className="hero-progress"><i/></div><span>GET MOVING</span></div>
+        <div className="hero-photo"><img src="/images/hero-driving-lesson.png" alt="A learner driver practicing with a supportive instructor"/><div className="hero-photo-shade"/><div className="hero-quote"><span className="quote-mark">“</span><div><b>No shouting. No pressure. Just confident driving.</b><small>OUR PROMISE AT INSTRCTR</small></div></div><span className="hero-photo-kicker">Verified trainers · Home pickup <i>✳</i></span></div>
+        <div className="hero-bottom"><span>Cars and two-wheelers · Manual and automatic</span><div className="hero-progress"><i/></div><span>GET MOVING</span></div>
       </section>
       <section id="services" className="section services"><div className="section-heading"><div><div className="eyebrow">THE RIGHT START, YOUR WAY</div><h2>Tailored programs<br/>for your road.</h2></div><p>From your first nervous turn to confident city driving, find the kind of guidance that feels right for you.</p></div>
         <div className="program-grid">
@@ -103,6 +103,6 @@ export default function Home() {
       </div></section>
       <section className="app-banner"><div className="app-spark">✳</div><div><div className="eyebrow">YOUR NEXT MOVE IS ALMOST HERE</div><h2>The Instrctr app is coming soon.</h2><p>Driving classes, local experts, and your learning journey — all in one place.</p></div><div className="store-buttons"><span className="store-badge"><span className="store-icon">▶</span><span><small>COMING SOON TO</small><b>Google Play</b></span></span><span className="store-badge"><span className="apple-icon">●</span><span><small>COMING SOON TO</small><b>App Store</b></span></span></div></section>
     </main>
-    <footer><div className="footer-main"><div className="footer-brand"><a className="brand" href="#home"><span><span className="brand-i">i</span>nstrctr<span className="brand-dot">.</span></span></a><p>Learn with confidence.<br/>Drive with freedom.</p></div><div><b>EXPLORE</b><a href="#services">Our services</a><a href="#journey">Learning path</a><a href="#impact">Our impact</a><a href="#cities">Cities</a></div><div><b>JOIN US</b><a href="#join">Become an instructor</a><a href="#join">Partner with Instrctr</a></div><div className="footer-app"><b>COMING SOON</b><p>Your next journey, in your pocket.</p><div className="footer-stores"><span>▶ Google Play</span><span>● App Store</span></div></div></div><div className="footer-bottom"><span>© 2026 Instrctr. All roads lead somewhere.</span><span>MADE FOR THE ROAD <b>✳</b></span></div></footer>
+    <footer><div className="footer-main"><div className="footer-brand"><a className="brand" href="#home"><span><span className="brand-i">i</span>nstrctr<span className="brand-dot">.</span></span></a><p>Learn with confidence.<br/>Drive with freedom.</p></div><div><b>EXPLORE</b><a href="#services">Classes</a><a href="#journey">How it works</a><a href="#impact">Reviews</a><a href="#cities">Areas we cover</a></div><div><b>JOIN US</b><a href="#join">Become an instructor</a><a href="#join">Partner with Instrctr</a></div><div className="footer-app"><b>COMING SOON</b><p>Your next journey, in your pocket.</p><div className="footer-stores"><span>▶ Google Play</span><span>● App Store</span></div></div></div><div className="footer-bottom"><span>© 2026 Instrctr. All roads lead somewhere.</span><span>MADE FOR THE ROAD <b>✳</b></span></div></footer>
   </>;
 }
